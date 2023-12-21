@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takulator</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="h-screen">
+    <div class="absolute ml-[50%] -translate-x-2/4 top-2/4 -translate-y-2/4">
+
+        <!-- Start of Calculator Body -->
+        <div class="w-[400px] h-[600px] bg-[#5FAAEF] text-blue-600 px-[10px] py-[10px] rounded-[10px]">
+
+            <!-- Start of Display Area -->
+            <div class="w-[380px] h-[100px] bg-white rounded-[10px] p-3">display area</div>
+            <!-- End of Display Area -->
+
+            <!-- Start of Button Area -->
+            <div class="w-[380px] h-[470px] bg-white mt-[10px] rounded-[10px] p-[15px] flex flex-row gap-[10px]">
+
+                <!-- C, 7, 4, 1 -->
+                <div class="basis-1/4 flex flex-col gap-[10px]">
+                    <div class="basis-1/5 bg-[#F95151] rounded-[10px]">
+                        <div class="btn-text text-white">
+                            C
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            7
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            4
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            1
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÷, 8, 5, 2, 0 -->
+                <div class="basis-1/4 flex flex-col gap-[10px]">
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            ÷
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            8
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            5
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            2
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            0
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ×, 9, 6, 3, . -->
+                <div class="basis-1/4 flex flex-col gap-[10px]">
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            ×
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            9
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            6
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            3
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            .
+                        </div>
+                    </div>
+                </div>
+
+                <!-- del, -, +, = -->
+                <div class="basis-1/4 flex flex-col gap-[10px]">
+                    <div class="btn-background">
+                        <div class="btn-icon">
+                            <img src="./assets/icons/delete-left-solid.svg" alt="Del">
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            -
+                        </div>
+                    </div>
+                    <div class="btn-background">
+                        <div class="btn-text text-[#444]">
+                            +
+                        </div>
+                    </div>
+                    <div class="basis-[186px] bg-[#5FAAEF] rounded-[10px]">
+                        <div class="btn-text text-white">
+                            =
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <!-- End of Button Area -->
+
+        </div>
+        <!-- End of Calculator Body -->
+        
+    </div>
+
+
+
+    <script src="./js/function.js"></script>
+</body>
+</html>
