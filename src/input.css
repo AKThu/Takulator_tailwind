@@ -4,13 +4,21 @@
 
 @layer components {
     .btn-text {
-        @apply relative inline-block ml-[50%] -translate-x-2/4 top-2/4 -translate-y-[60%] text-5xl font-medium;
+        @apply relative inline-block ml-[50%] -translate-x-2/4 top-2/4 -translate-y-[60%] text-5xl font-medium select-none;
     }
     .btn-icon {
-        @apply relative inline-block ml-[50%] -translate-x-2/4 top-2/4 -translate-y-2/4;
+        @apply relative inline-block ml-[50%] -translate-x-2/4 top-2/4 -translate-y-2/4 select-none;
     }
 
     .btn-background {
-        @apply basis-1/5 bg-[#DDD] rounded-[10px];
+        @apply basis-1/5 bg-[#DDD] rounded-[10px] hover:shadow-sm hover:bg-[#BBB] hover:shadow-black;
     }
+    .btn-background-red {
+        @apply basis-1/5 bg-[#F95151] rounded-[10px] hover:shadow-sm hover:bg-[#ca4242] hover:shadow-black;
+    }
+    .btn-background-special {
+        @apply basis-[186px] bg-[#5FAAEF] rounded-[10px] hover:shadow-sm hover:bg-[#4a85bd] hover:shadow-black;
+    }
+
+
 }

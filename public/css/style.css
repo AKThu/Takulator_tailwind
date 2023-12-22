@@ -552,6 +552,9 @@ video {
   --tw-translate-x: -50%;
   --tw-translate-y: -60%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: 3rem;
   line-height: 1;
   font-weight: 500;
@@ -565,6 +568,9 @@ video {
   --tw-translate-x: -50%;
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .btn-background {
@@ -572,6 +578,50 @@ video {
   border-radius: 10px;
   --tw-bg-opacity: 1;
   background-color: rgb(221 221 221 / var(--tw-bg-opacity));
+}
+
+.btn-background:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 187 187 / var(--tw-bg-opacity));
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.btn-background-red {
+  flex-basis: 20%;
+  border-radius: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 81 81 / var(--tw-bg-opacity));
+}
+
+.btn-background-red:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 66 66 / var(--tw-bg-opacity));
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.btn-background-special {
+  flex-basis: 186px;
+  border-radius: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(95 170 239 / var(--tw-bg-opacity));
+}
+
+.btn-background-special:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 133 189 / var(--tw-bg-opacity));
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .absolute {
@@ -582,12 +632,20 @@ video {
   top: 50%;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .ml-\[50\%\] {
   margin-left: 50%;
 }
 
 .mt-\[10px\] {
   margin-top: 10px;
+}
+
+.mt-\[30px\] {
+  margin-top: 30px;
 }
 
 .flex {
@@ -622,20 +680,17 @@ video {
   flex-basis: 25%;
 }
 
-.basis-1\/5 {
-  flex-basis: 20%;
-}
-
-.basis-\[186px\] {
-  flex-basis: 186px;
-}
-
 .-translate-x-2\/4 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-y-2\/4 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-\[50\%\] {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -661,18 +716,9 @@ video {
   background-color: rgb(95 170 239 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#F95151\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 81 81 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .p-\[15px\] {
@@ -687,6 +733,19 @@ video {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .text-\[\#444\] {

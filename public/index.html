@@ -6,14 +6,18 @@
     <title>Takulator</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="h-screen">
+<body id="bd"class="h-screen">
     <div class="absolute ml-[50%] -translate-x-2/4 top-2/4 -translate-y-2/4">
 
         <!-- Start of Calculator Body -->
         <div class="w-[400px] h-[600px] bg-[#5FAAEF] text-blue-600 px-[10px] py-[10px] rounded-[10px]">
 
             <!-- Start of Display Area -->
-            <div class="w-[380px] h-[100px] bg-white rounded-[10px] p-3">display area here</div>
+            <div class="w-[380px] h-[100px] bg-white rounded-[10px] p-[15px]">
+                <div id="view" class="mt-[30px] -translate-y-[50%] mb-0 text-end text-5xl text-[#444] font-medium">
+                    
+                </div>
+            </div>
             <!-- End of Display Area -->
 
             <!-- Start of Button Area -->
@@ -21,27 +25,27 @@
 
                 <!-- C, 7, 4, 1 -->
                 <div class="basis-1/4 flex flex-col gap-[10px]">
-                    <div class="basis-1/5 bg-[#F95151] rounded-[10px]">
+                    <div id="clear" class="btn-background-red">
                         <div class="btn-text text-white">
                             C
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="seven" class="btn-background">
                         <div class="btn-text text-[#444]">
                             7
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="four" class="btn-background">
                         <div class="btn-text text-[#444]">
                             4
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="one" class="btn-background">
                         <div class="btn-text text-[#444]">
                             1
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="none" class="btn-background">
                         <div class="btn-text text-[#444]">
                             
                         </div>
@@ -50,27 +54,27 @@
 
                 <!-- ÷, 8, 5, 2, 0 -->
                 <div class="basis-1/4 flex flex-col gap-[10px]">
-                    <div class="btn-background">
+                    <div id="divide" class="btn-background">
                         <div class="btn-text text-[#444]">
                             ÷
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="eight" class="btn-background">
                         <div class="btn-text text-[#444]">
                             8
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="five" class="btn-background">
                         <div class="btn-text text-[#444]">
                             5
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="two" class="btn-background">
                         <div class="btn-text text-[#444]">
                             2
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="zero" class="btn-background">
                         <div class="btn-text text-[#444]">
                             0
                         </div>
@@ -79,27 +83,27 @@
 
                 <!-- ×, 9, 6, 3, . -->
                 <div class="basis-1/4 flex flex-col gap-[10px]">
-                    <div class="btn-background">
+                    <div id="multiply" class="btn-background">
                         <div class="btn-text text-[#444]">
                             ×
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="nine" class="btn-background">
                         <div class="btn-text text-[#444]">
                             9
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="six" class="btn-background">
                         <div class="btn-text text-[#444]">
                             6
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="three" class="btn-background">
                         <div class="btn-text text-[#444]">
                             3
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="decimal" class="btn-background">
                         <div class="btn-text text-[#444]">
                             .
                         </div>
@@ -108,22 +112,22 @@
 
                 <!-- del, -, +, = -->
                 <div class="basis-1/4 flex flex-col gap-[10px]">
-                    <div class="btn-background">
+                    <div id="del" class="btn-background">
                         <div class="btn-icon">
                             <img src="./assets/icons/delete-left-solid.svg" alt="Del">
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="subtract" class="btn-background">
                         <div class="btn-text text-[#444]">
                             -
                         </div>
                     </div>
-                    <div class="btn-background">
+                    <div id="add" class="btn-background">
                         <div class="btn-text text-[#444]">
                             +
                         </div>
                     </div>
-                    <div class="basis-[186px] bg-[#5FAAEF] rounded-[10px]">
+                    <div id="equal" class="btn-background-special">
                         <div class="btn-text text-white">
                             =
                         </div>
