@@ -50,13 +50,18 @@ del.onclick = () => {
 }
 
 equal.onclick = () => {
-    
-
+    set_number();
+    calculate(Equal);
 }
 
 add.onclick = () => {
     set_number();
-    calculate(Add);
+    if(reserved_num.textContent === "") {
+        display_reserved_num(Add)
+    } else {
+        calculate(Add)
+    }
+    current_num.textContent = "";
 }
 
 
@@ -96,8 +101,19 @@ let display_reserved_num = (operator) => reserved_num.textContent = number_1 + "
 let display_current_num = () => current_num.textContent = number_1;
 
 let calculate = (operator) => {
+    
+    operations(operator.name);
+    
+    if(operator.name === "equal") {
+        display_current_num();
+    } else {
+        display_reserved_num(operator);
+    }
 
-    switch(operator.name){
+}
+
+let operations = (operation) => {
+    switch(operation){
         case "add":
             number_1 += number_2;
             break;
@@ -111,13 +127,6 @@ let calculate = (operator) => {
             number_1 = (number_1 / number_2) + (number_1 % number_2);
             break;
     }
-    
-    if(operator.name === "equal") {
-        display_current_num();
-    } else {
-        display_reserved_num(operator);
-    }
-
 }
 
 let Add = {
