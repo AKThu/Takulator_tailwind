@@ -28,7 +28,7 @@ let seven = document.querySelector("#seven");
 let eight = document.querySelector("#eight");
 let nine = document.querySelector("#nine");
 let decimal = document.querySelector("#decimal");
-let num_arr = [zero, one, two, three, four, five, six, seven ,eight, nine];
+
 // getting display area
 let main_display = document.querySelector("#main_display");
 let second_display =document.querySelector("#second_display");
@@ -43,28 +43,31 @@ main_display.textContent = ""
 second_display.textContent = ""
 
 
-// actions
-// clear action
+
+// button actions
+// clear button pressed action
 clear.onclick = () => {
+
     main_display.textContent = "";
     second_display.textContent = "";
     number_1 = NaN;
     number_2 = NaN;
     operation_type = null;
+
 }
 
-// delete action
+
+// delete button pressed action
 del.onclick = () => {
 
     let orgString = main_display.textContent;
-    console.log(orgString)
     let newString = orgString.substring(0, orgString.length - 1)
-    console.log(newString)
-
     main_display.textContent = newString
+
 }
 
-// equal action
+
+// equal button pressed action
 equal.onclick = () => {
 
     assignNumberToVariable();
@@ -75,17 +78,15 @@ equal.onclick = () => {
 
 }
 
-  
-// operator actions
+
+// operator button pressed actions
 add.onclick = () => operatorAction(Add);
 subtract.onclick = () => operatorAction(Subtract);
 multiply.onclick = () => operatorAction(Multiply);
 divide.onclick = () => operatorAction(Divide);
 
-
-
-// number button press actions 
-zero.onclick = () => { if(main_display.textContent !== "") main_display.appendChild(txt(0)); }
+// number button pressed actions 
+zero.onclick = () => { if(main_display.textContent !== "0") main_display.appendChild(txt(0)); }
 one.onclick = () => main_display.appendChild(txt(1));
 two.onclick = () => main_display.appendChild(txt(2));
 three.onclick = () => main_display.appendChild(txt(3));
@@ -95,51 +96,62 @@ six.onclick = () => main_display.appendChild(txt(6));
 seven.onclick = () => main_display.appendChild(txt(7));
 eight.onclick = () => main_display.appendChild(txt(8));
 nine.onclick = () => main_display.appendChild(txt(9));
-decimal.onclick = () => main_display.appendChild(txt("."));
+decimal.onclick = () => { if(main_display.textContent.indexOf(".") === -1) main_display.appendChild(txt(".")); }
 
- 
 
-// functions to make your life easier
-// functions to shorten the code
+// functions
  
 // function to create text node
 let txt = (txt) => document.createTextNode(txt);
 
-let assignNumberToVariable = () => {
-    if(second_display.textContent === "") {
-        number_1 = parseInt(main_display.textContent);
-        console.log("in 1")
-    } else {
-        number_2 = parseInt(main_display.textContent);
-        console.log("in 2")
-    }
-}
-
-// operator button action
+// operator buttons action (add, subtract, multiply, divide)
 let operatorAction = (operator) => {
 
-    operation_type = operator.name;
-    assignNumberToVariable();
-    if(number_1 && number_2) calculate();
-    number_2 = NaN;
-    showOnSecondDisplay(addSign(operator));
+    if(main_display.textContent) {
+
+        assignNumberToVariable();
+        if(number_1 && number_2) calculate();
+        number_2 = NaN;
+        operation_type = operator.name;
+        showOnSecondDisplay(addSign(operator));
+
+    } else if(second_display.textContent) {
+
+        operation_type = operator.name;
+        showOnSecondDisplay(addSign(operator));
+
+    }
+    
     clearMainDisplay();
 
 }
 
 
+// function to assign number from the display to respective Global variable
+let assignNumberToVariable = () => {
+
+    if(second_display.textContent === "") {
+        number_1 = parseFloat(main_display.textContent);
+    } else {
+        number_2 = parseFloat(main_display.textContent);
+    }
+
+}
+
+
 let addSign = (operator) => number_1 + " " + operator.sign;
+
 let showOnSecondDisplay = (signAddedString) => second_display.textContent = signAddedString;
 let showOnMainDisplay = () => main_display.textContent = number_1;
- 
-let assignToNum1 = () => number_1 = parseInt(main_display.textContent);
-let assignToNum2 = () => number_2 = parseInt(main_display.textContent);
 
 let clearMainDisplay = () => main_display.textContent = "";
 let clearSecondDisplay = () => second_display.textContent = "";
 
-// to fix
+let assignToNum1 = () => number_1 = parseInt(main_display.textContent);
+let assignToNum2 = () => number_2 = parseInt(main_display.textContent);
+
 let calculate = () => {
+
     switch(operation_type){
         case "add":
             number_1 += number_2;
@@ -154,8 +166,10 @@ let calculate = () => {
             number_1 = (number_1 / number_2) + (number_1 % number_2);
             break;
     }
-} 
 
+}
+
+// Operator objects
 let Add = {
     name: "add",
     sign: "+"
