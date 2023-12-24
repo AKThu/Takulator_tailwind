@@ -1,3 +1,14 @@
+/*
+
+Fix bug for division
+    division result is with decimal
+    but auto rounded up to integer when it is passed for another operation
+
+*/
+
+
+
+
 // getting buttons
 let clear = document.querySelector("#clear");
 let del = document.querySelector("#del");
@@ -19,101 +30,117 @@ let nine = document.querySelector("#nine");
 let decimal = document.querySelector("#decimal");
 let num_arr = [zero, one, two, three, four, five, six, seven ,eight, nine];
 // getting display area
-let current_num = document.querySelector("#current_num");
-let reserved_num =document.querySelector("#reserved_num");
-//
+let main_display = document.querySelector("#main_display");
+let second_display =document.querySelector("#second_display");
+
+// Global variables
 let number_1 = NaN;
 let number_2 = NaN;
+let operation_type = null;
 
 // init
-current_num.textContent = ""
-reserved_num.textContent = ""
+main_display.textContent = ""
+second_display.textContent = ""
 
 
 // actions
 // clear action
 clear.onclick = () => {
-    current_num.textContent = "";
-    reserved_num.textContent = "";
+    main_display.textContent = "";
+    second_display.textContent = "";
+    number_1 = NaN;
+    number_2 = NaN;
+    operation_type = null;
 }
 
 // delete action
 del.onclick = () => {
-    // alert(current_num.textContent.split("").pop())
 
-    let orgString = current_num.textContent;
+    let orgString = main_display.textContent;
     console.log(orgString)
     let newString = orgString.substring(0, orgString.length - 1)
     console.log(newString)
 
-    current_num.textContent = newString
+    main_display.textContent = newString
 }
 
+// equal action
 equal.onclick = () => {
-    set_number();
-    calculate(Equal);
+
+    assignNumberToVariable();
+    if( number_1 && number_2) calculate();
+    number_2 = NaN;
+    showOnMainDisplay();
+    clearSecondDisplay();
+
 }
 
-add.onclick = () => {
-    set_number();
-    if(reserved_num.textContent === "") {
-        display_reserved_num(Add)
-    } else {
-        calculate(Add)
-    }
-    current_num.textContent = "";
-}
+  
+// operator actions
+add.onclick = () => operatorAction(Add);
+subtract.onclick = () => operatorAction(Subtract);
+multiply.onclick = () => operatorAction(Multiply);
+divide.onclick = () => operatorAction(Divide);
 
 
 
+// number button press actions 
+zero.onclick = () => { if(main_display.textContent !== "") main_display.appendChild(txt(0)); }
+one.onclick = () => main_display.appendChild(txt(1));
+two.onclick = () => main_display.appendChild(txt(2));
+three.onclick = () => main_display.appendChild(txt(3));
+four.onclick = () => main_display.appendChild(txt(4));
+five.onclick = () => main_display.appendChild(txt(5));
+six.onclick = () => main_display.appendChild(txt(6));
+seven.onclick = () => main_display.appendChild(txt(7));
+eight.onclick = () => main_display.appendChild(txt(8));
+nine.onclick = () => main_display.appendChild(txt(9));
+decimal.onclick = () => main_display.appendChild(txt("."));
 
-// number button press actions
-zero.onclick = () => { if(current_num.textContent !== "") current_num.appendChild(txt(0)); }
-one.onclick = () => current_num.appendChild(txt(1));
-two.onclick = () => current_num.appendChild(txt(2));
-three.onclick = () => current_num.appendChild(txt(3));
-four.onclick = () => current_num.appendChild(txt(4));
-five.onclick = () => current_num.appendChild(txt(5));
-six.onclick = () => current_num.appendChild(txt(6));
-seven.onclick = () => current_num.appendChild(txt(7));
-eight.onclick = () => current_num.appendChild(txt(8));
-nine.onclick = () => current_num.appendChild(txt(9));
-decimal.onclick = () => current_num.appendChild(txt("."));
-
-
+ 
 
 // functions to make your life easier
 // functions to shorten the code
-
-
+ 
 // function to create text node
 let txt = (txt) => document.createTextNode(txt);
 
-let set_number = () => {
-    if(reserved_num.textContent === "") {
-        number_1 = parseInt(current_num.textContent);
+let assignNumberToVariable = () => {
+    if(second_display.textContent === "") {
+        number_1 = parseInt(main_display.textContent);
+        console.log("in 1")
     } else {
-        number_2 = parseInt(current_num.textContent);
+        number_2 = parseInt(main_display.textContent);
+        console.log("in 2")
     }
 }
 
-let display_reserved_num = (operator) => reserved_num.textContent = number_1 + " " + operator.sign;
-let display_current_num = () => current_num.textContent = number_1;
+// operator button action
+let operatorAction = (operator) => {
 
-let calculate = (operator) => {
-    
-    operations(operator.name);
-    
-    if(operator.name === "equal") {
-        display_current_num();
-    } else {
-        display_reserved_num(operator);
-    }
+    operation_type = operator.name;
+    assignNumberToVariable();
+    if(number_1 && number_2) calculate();
+    number_2 = NaN;
+    showOnSecondDisplay(addSign(operator));
+    clearMainDisplay();
 
 }
 
-let operations = (operation) => {
-    switch(operation){
+
+let addSign = (operator) => number_1 + " " + operator.sign;
+let showOnSecondDisplay = (signAddedString) => second_display.textContent = signAddedString;
+let showOnMainDisplay = () => main_display.textContent = number_1;
+ 
+let assignToNum1 = () => number_1 = parseInt(main_display.textContent);
+let assignToNum2 = () => number_2 = parseInt(main_display.textContent);
+
+let clearMainDisplay = () => main_display.textContent = "";
+let clearSecondDisplay = () => second_display.textContent = "";
+
+// to fix
+let calculate = () => {
+    switch(operation_type){
         case "add":
             number_1 += number_2;
             break;
@@ -127,13 +154,13 @@ let operations = (operation) => {
             number_1 = (number_1 / number_2) + (number_1 % number_2);
             break;
     }
-}
+} 
 
 let Add = {
     name: "add",
     sign: "+"
 }
-let Subtrace = {
+let Subtract = {
     name: "subtract",
     sign: "-" 
 }
